@@ -149,14 +149,17 @@
 
           // check if param has the category of paramId and includes option of optionID
           if(formData[paramId] && formData[paramId].includes(optionId)){
+            if(!option.default == true) {
+              price += option.price;
+            } 
+          } else {
             if(option.default == true){
-              price+=option.price;
-            }else{
-              price+=option.price;
+              price -= option.price;
             }
           }
         }
       }
+      
     
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
