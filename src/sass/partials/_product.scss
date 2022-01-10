@@ -90,6 +90,11 @@
       opacity: 0;
       transition: opacity 500ms;
 
+      &.size{
+        height: 350px;
+        width: 350px;
+      }
+
       &.active {
         opacity: 1;
       }

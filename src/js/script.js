@@ -131,7 +131,6 @@
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log('formData', formData);
-    
       // set price to default price
       let price = thisProduct.data.price;
     
@@ -148,7 +147,8 @@
           //console.log(option.default);
 
           // check if param has the category of paramId and includes option of optionID
-          if(formData[paramId] && formData[paramId].includes(optionId)){
+          const param_category = formData[paramId] && formData[paramId].includes(optionId);
+          if(param_category){
             if(!option.default == true) {
               price += option.price;
             } 
@@ -157,6 +157,17 @@
               price -= option.price;
             }
           }
+          
+          const optionImage = thisProduct.imageWrapper.querySelector('img'+ '.' + paramId + '-' + optionId);
+          if(optionImage){
+            console.log(optionImage);
+            if(param_category){
+              optionImage.classList.add('active');
+            }else{
+              optionImage.classList.remove('active');
+            }
+          }
+          
         }
       }
       
@@ -173,6 +184,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
   }
 
