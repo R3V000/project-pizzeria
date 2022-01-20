@@ -44,7 +44,7 @@
       formSubmit: '.cart__order [type="submit"]',
       phone: '[name="phone"]',
       address: '[name="address"]',
-      total2: '.cart__order-total .cart__order-price-sum strong',
+      totalPriceCart: '.cart__order-total .cart__order-price-sum strong',
     },
     cartProduct: {
       amountWidget: '.widget-amount',
@@ -376,7 +376,7 @@
       thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subtotalPrice);
       thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelector(select.cart.totalPrice);
       thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
-      thisCart.dom.total2 = thisCart.dom.wrapper.querySelector(select.cart.total2);
+      thisCart.dom.totalPriceCart = thisCart.dom.wrapper.querySelector(select.cart.totalPriceCart);
 
     }
     initActions(){
@@ -435,7 +435,7 @@
       thisCart.dom.subtotalPrice.innerHTML = subtotalPrice;
       thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
       thisCart.dom.totalNumber.innerHTML = totalNumber;
-      thisCart.dom.total2.innerHTML = thisCart.totalPrice;
+      thisCart.dom.totalPriceCart.innerHTML = thisCart.totalPrice;
     }
     
     remove(cartProduct){
