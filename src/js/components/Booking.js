@@ -13,7 +13,7 @@ class Booking {
   render(element){
     const thisBooking = this;
 
-    thisBooking.dom = [];
+    thisBooking.dom = {};
     thisBooking.dom.wrapper = element;
 
 

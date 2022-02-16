@@ -83,8 +83,10 @@ class Cart {
 
     if(thisCart.totalNumber === 0){
       thisCart.totalPrice = 0;
+      thisCart.dom.deliveryFee.innerHTML = 0;
     }else{
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+      thisCart.dom.deliveryFee.innerHTML = thisCart.deliveryFee;
     }
 
     for(let price of thisCart.dom.totalPrice){
@@ -95,6 +97,7 @@ class Cart {
     thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.totalPriceCart.innerHTML = thisCart.totalPrice;
+ 
   }
   
   remove(cartProduct){
