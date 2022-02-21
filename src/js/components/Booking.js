@@ -230,8 +230,8 @@ class Booking {
       thisBooking.initTables(element);
     });
 
-    thisBooking.dom.buttonBook.addEventListener('click', function(){
-      //event.preventDefault();
+    thisBooking.dom.buttonBook.addEventListener('click', function(event){
+      event.preventDefault();
       thisBooking.sendBooking();
     });
   }
