@@ -268,6 +268,7 @@ class Booking {
         return response.json();
       }).then(function(){
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+        thisBooking.resetTables();
         thisBooking.updateDOM();
       });
   }

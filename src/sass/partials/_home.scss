@@ -1,0 +1,156 @@
+/* stylelint-disable */
+#home {
+  padding: ($base-size * 3) 0;
+}
+
+
+
+
+.home-page {
+  margin: ($base-size / 2) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+
+  .col-wrapper {
+    @include flex(row, center, space-between);
+    text-align: center;
+
+    .row{
+      position: relative;
+      max-width: max-content;
+
+      .link{
+        margin-top: 15px;
+        white-space: nowrap;
+        position: absolute;
+        text-decoration: none;
+        color: $color-light;
+        z-index: 3;
+        @include center();
+        
+
+        .hover-text{
+          transition: 0.2s linear;
+          opacity: 0;
+        }
+
+        &:hover{
+          .hover-text {
+
+            margin-bottom: 50px;
+            opacity: 1;
+          }
+        }
+      }
+
+      .home-photos{
+        width: 275px;
+        height:110px;
+        object-fit: cover;
+        z-index: 1;
+      }
+    }
+  }
+  .open-hours{
+    padding: 2px;
+    text-align: center;
+    content: "";
+    background-color: $color-main;
+    color: $color-light;
+    h2 {
+      margin-bottom: -10px;
+    }
+
+  }
+
+  .opinions {
+    margin-top: 60px;
+    .main-carousel {
+      .carousel-cell {
+        .opinion {
+          @include flex(row, center, space-between);
+          
+          .opinion-img{
+            margin-right: 40px;
+            img{
+              width: 180px;
+              height: 180px;
+              object-fit: cover;
+
+            } 
+          }
+
+          .opinion-desc{
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  .gallery {
+    margin-top: 120px;
+    .gallery-row {
+      @include flex(row, center, space-between);
+      width: 560px;
+      height: 180px;
+      margin-top: 8px;
+      .gallery-column {
+        position: relative;
+        width: 180px;
+        height: 180px;
+
+        img {
+          width: 180px;
+          height: 180px;
+          object-fit: cover;
+        }
+
+        .overlay {
+          z-index: 9999;
+          position: absolute;
+          transition: .3s ease;
+          opacity: 0;
+          @include center();
+          i {
+            font-size: 25px;
+            color: $color-light;
+            padding: 5px;
+            &:hover{
+              color: red;     
+            }
+          }
+        }
+
+        &:hover .overlay {
+          opacity: 1;
+        }
+        
+        &::after{
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          content: '';
+          width: 180px;
+          height: 180px;
+          background-color:black;
+          z-index: 1;
+        }
+
+        &:hover::after{
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+
+  .footer{
+    margin-top: 20px;
+    a {
+      color: $color-main;
+    }
+  }
+}
